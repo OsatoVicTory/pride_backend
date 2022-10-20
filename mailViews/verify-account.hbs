@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Account Verification</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                box-sizing: border-box;
+            }
+            .body-container {
+                width: 100vw;
+                height: auto;
+                align-items: center;
+                background-color: rgba(27,27,27,.15);
+                box-sizing: border-box;
+                padding: 20px;
+            }
+            .body-container .container {
+                margin: auto;
+                max-width: 500px;
+                width: auto;
+                height: auto;
+                background-color: #FFFFFF;
+                border-radius: 10px;
+                box-sizing: border-box;
+                padding: 20px;
+            }
+            .top {
+                width: 100%;
+                height: auto;
+            }
+            .top .text {
+                width: 100%;
+                height: auto;
+            }
+            .text h2 {
+                text-align: center;
+                font-size: 19px;
+                line-height: 1rem;
+            }
+            .text h3 {
+                text-align: center;
+                font-size: 19px;
+                line-height: 1rem;
+                text-transform: capitalize;
+            }
+            .text p {
+                text-align: center;
+                font-size: 15px;
+                line-height: 1.5rem;
+            }
+            .mid {
+                width: 100%;
+                height: auto;
+                margin-top: 40px;
+            }
+            .mid a {
+                margin: 0 auto;
+                width: 130px;
+                height: max-content;
+                box-sizing: border-box;
+                padding: 12px;
+                text-decoration: none;
+                border-radius: 10px;
+                color: white;
+                background-color: rgb(66, 131, 221);
+                font-size: 16px;
+            }
+            .mid a:hover {
+                background-color: rgb(110, 168, 248);
+            }
+            .container .bottom {
+                width: 100%;
+                height: auto;
+                margin-top: 40px;
+            }
+            .bottom .small {
+                width: 150px;
+                margin: 0 auto;
+                text-align: center;
+                font-size: 18px;
+                line-height: 1.5rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="body-container">
+            <div class="container">
+                <div class="top">
+                    <div class="text">
+                        <h2>Hi there again,</h2>
+                        <br>
+                        <h3>{{userName}}</h3>
+                        <br>
+                        <p>
+                            Thank you for creating and account with us.
+                            Now click the button below to verify your account. 
+                        </p>
+                    </div>
+                    <br>
+                </div>
+                <div class="mid">
+                    <a href={{link}}>Verify Account</a>
+                </div>
+                <br>
+                <div class="bottom">
+                    <span class="small">&#169; PRIDE {{year}}</span>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

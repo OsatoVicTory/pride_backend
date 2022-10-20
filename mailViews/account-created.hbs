@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Password Reset</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                box-sizing: border-box;
+            }
+            .body-container {
+                width: 100vw;
+                height: auto;
+                background-color: rgba(27,27,27,.15);
+                box-sizing: border-box;
+                padding: 20px;
+            }
+            .body-container .container {
+                margin: auto;
+                max-width: 500px;
+                width: auto;
+                height: auto;
+                background-color: #FFFFFF;
+                border-radius: 10px;
+                box-sizing: border-box;
+                padding: 20px;
+            }
+            .top {
+                width: 100%;
+                height: auto;
+            }
+            .top .text {
+                width: 100%;
+                height: auto;
+            }
+            .text h2 {
+                text-align: center;
+                font-size: 19px;
+                line-height: 1rem;
+            }
+            .text h3 {
+                text-align: center;
+                font-size: 19px;
+                line-height: 1rem;
+                text-transform: capitalize;
+            }
+            .mid {
+                width: 100%;
+                height: auto;
+                margin-top: 40px;
+            }
+            .mid p {
+                margin: 0 auto;
+                text-align: center;
+                font-size: 16px;
+                line-height: 1.7rem;
+            }
+            .container .bottom {
+                width: 100%;
+                height: auto;
+                margin-top: 40px;
+            }
+            .bottom .small {
+                width: 150px;
+                margin: 0 auto;
+                text-align: center;
+                font-size: 18px;
+                line-height: 1.5rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="body-container">
+            <div class="container">
+                <div class="top">
+                    <div class="text">
+                        <h2>Hi there again,</h2>
+                        <br>
+                        <h3>{{userName}}</h3>
+                        <br>
+                    </div>
+                    <br>
+                </div>
+                <div class="mid">
+                    <p>
+                        You successfully created an account with us using your
+                         {{provider}} account at {{time}}
+                    </p>
+                </div>
+                <br>
+                <div class="bottom">
+                    <span class="small">&#169; PRIDE {{year}}</span>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
