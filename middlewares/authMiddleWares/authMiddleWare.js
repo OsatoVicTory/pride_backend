@@ -16,11 +16,13 @@ exports.authUser = catchAsync(async (req, res, next) => {
         token = req.cookies.PRIDE_TOKEN;
     }
 
+    console.log("req=>", req);
+    console.log("req.cookies=>", req.cookies);
     if(!token) return appError(res, 400, "Not Logged In. Redirecting to Log In Page");
 
     const decodedToken = await jwt.verify(token, process.env.MYSECRET);
 
-    // console.log("tokendecoded=>", decodedToken);
+    
     if(!decodedToken) return appError(res, 400, "Not Logged In. Redirecting to Log In Page");
 
     req.user = decodedToken;
