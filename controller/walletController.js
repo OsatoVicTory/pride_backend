@@ -1,4 +1,4 @@
-const Wallet = require("../models/Wallet");
+const Wallet = require("../models/wallet");
 const catchAsync = require("../utils/errorsHandler/catchAsync");
 
 exports.getWallet = catchAsync(async (req, res) => {
