@@ -37,7 +37,10 @@ exports.logInUser = catchAsync(async (req, res) => {
     return res.status(200).json({
         status: 'success',
         message: "Logged In Successfully",
-        user: user._doc
+        user: {
+            ...user._doc,
+            RAPID_API_KEY: process.env.RAPID_API_KEY
+        }
     })
 });
 

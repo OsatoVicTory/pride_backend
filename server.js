@@ -20,7 +20,7 @@ mongoose.connect(uri, {
     useUnifiedTopology: true
 }, (err) => {
     if(err) console.log(err);
-    else console.log("mongodb connected succefully");
+    else console.log("mongodb connected successfully");
 });
 
 app.use("/", Routes);
