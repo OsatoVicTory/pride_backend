@@ -3,7 +3,6 @@ exports.sendCookie = (res, data) => {
         httpOnly: true,
         maxAge: 2680000000,
         sameSite: 'none',
-        secure: true,
-        domain: 'pride-dot-app.netlify.app'
+        secure: true
     })
 }
