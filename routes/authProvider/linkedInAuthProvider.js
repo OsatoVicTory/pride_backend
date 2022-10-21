@@ -74,10 +74,6 @@ router.get("/success", async (req, res) => {
 })
 
 router.get("/fail", function(req, res) {
-    res.status(200).json({
-        status: 'failed',
-        message: `Authentication Failed`
-    })
     res.redirect(`${process.env.FRONTEND_URL}/login`);
 })
 
