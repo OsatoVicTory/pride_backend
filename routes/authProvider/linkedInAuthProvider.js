@@ -54,7 +54,6 @@ passport.use(new LinkedInStrategy({
 
         return cb(null, userAccount);
     } catch (err) {
-        console.log("err=>",err);
         return cb(err);
     }
 }));
