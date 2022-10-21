@@ -77,7 +77,7 @@ router.get("/fail", function(req, res) {
 
 router.get("/callback", passport.authenticate("google", { 
     failureRedirect: `${process.env.SERVER}/auth/google/fail`
-}), (req, res) => {
+}), async (req, res) => {
     const token = await jwt.sign({ id: req.user._id.toString() }, process.env.MYSECRET);
     sendCookie(res, token);
     res.clearCookie("connect.sid");
