@@ -71,24 +71,17 @@ passport.deserializeUser(function (user, cb) {
     cb(null, user);
 })
 
-router.get("/success", async (req, res) => {
-    const token = await jwt.sign({ id: req.user._id.toString() }, process.env.MYSECRET);
-    sendCookie(res, token);
-    res.clearCookie("connect.sid");
-    res.redirect(`${process.env.FRONTEND_URL}/app/rides`);
-})
-
 router.get("/fail", function(req, res) {
-    res.status(200).json({
-        status: 'failed',
-        message: `Authentication Failed`
-    })
     res.redirect(`${process.env.FRONTEND_URL}/login`);
 })
 
 router.get("/callback", passport.authenticate("google", { 
-    successRedirect: `${process.env.SERVER}/auth/google/success`,
     failureRedirect: `${process.env.SERVER}/auth/google/fail`
-}));
+}), (req, res) => {
+    const token = await jwt.sign({ id: req.user._id.toString() }, process.env.MYSECRET);
+    sendCookie(res, token);
+    res.clearCookie("connect.sid");
+    res.redirect(`${process.env.FRONTEND_URL}/app/rides`);
+});
 
 module.exports = router;
