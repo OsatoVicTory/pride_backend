@@ -16,9 +16,9 @@ router.use(session({
     cookie: {
         name: "PRIDE_TOKEN",
         httpOnly: true,
-        maxAge: Date.now() + 86400000,
+        maxAge: 2680000000,
         sameSite: 'none',
-        secure: false
+        secure: true
     }
 }));
 
@@ -36,6 +36,7 @@ passport.use(new LinkedInStrategy({
 }, async (accessToken, refreshToken, profile, cb) => {
     try {
         const { emails, name, id } = profile;
+        console.log(profile);
         const email = emails[0].value;
         const user = await User.findOne({ email });
         if(user) {
