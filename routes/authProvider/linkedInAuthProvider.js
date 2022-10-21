@@ -36,7 +36,6 @@ passport.use(new LinkedInStrategy({
 }, async (accessToken, refreshToken, profile, cb) => {
     try {
         const { emails, name, id } = profile;
-        console.log(profile);
         const email = emails[0].value;
         const user = await User.findOne({ email });
         if(user) {
@@ -55,6 +54,7 @@ passport.use(new LinkedInStrategy({
 
         return cb(null, userAccount);
     } catch (err) {
+        console.log("err=>",err);
         return cb(err);
     }
 }));
@@ -67,16 +67,6 @@ passport.deserializeUser(function (user, cb) {
     cb(null, user);
 })
 
-router.get("/success", async (req, res) => {
-    const token = await jwt.sign({ id: req.user._id.toString() }, process.env.MYSECRET);
-    sendCookie(res, token);
-    res.clearCookie("connect.sid");
-    res.redirect(`${process.env.FRONTEND_URL}/app/rides`);
-})
-
-router.get("/fail", function(req, res) {
-    res.redirect(`${process.env.FRONTEND_URL}/login`);
-})
 
 router.get("/", 
   passport.authenticate("linkedin"),
@@ -86,8 +76,12 @@ router.get("/",
 );
 
 router.get("/callback", passport.authenticate("linkedin", { 
-    successRedirect: `${process.env.SERVER}/auth/LinkedIn/success`,
-    failureRedirect: `${process.env.SERVER}/auth/LinkedIn/fail`
+    failureRedirect: `${process.env.FRONTEND_URL}/login`
+}), async (req, res) => {
+    const token = await jwt.sign({ id: req.user._id.toString() }, process.env.MYSECRET);
+    sendCookie(res, token);
+    res.clearCookie("connect.sid");
+    res.redirect(`${process.env.FRONTEND_URL}/app/rides`);
 }));
 
 module.exports = router;
