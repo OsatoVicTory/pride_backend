@@ -81,6 +81,6 @@ router.get("/callback", passport.authenticate("linkedin", {
     sendCookie(res, token);
     res.clearCookie("connect.sid");
     res.redirect(`${process.env.FRONTEND_URL}/app/rides`);
-}));
+});
 
 module.exports = router;
