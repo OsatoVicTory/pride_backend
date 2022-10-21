@@ -33,15 +33,15 @@ exports.logInUser = catchAsync(async (req, res) => {
         })
     }
 
-    sendCookie(res, token);
-    return res.status(200).json({
+    res.status(200).json({
         status: 'success',
         message: "Logged In Successfully",
         user: {
             ...user._doc,
             RAPID_API_KEY: process.env.RAPID_API_KEY
         }
-    })
+    });
+    sendCookie(res, token);
 });
 
 exports.signUpUser = catchAsync(async (req, res, next) => {
