@@ -1,6 +1,6 @@
 const Trips = require("../models/Trips");
 const catchAsync = require("../utils/errorsHandler/catchAsync");
-const Wallet = require("../models/Wallet");
+const Wallet = require("../models/wallet");
 const { appError } = require("../utils/errorsHandler/errorsHandler");
 const axios = require("axios");
 
