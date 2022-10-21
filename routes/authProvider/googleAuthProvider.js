@@ -16,9 +16,9 @@ router.use(session({
     cookie: {
         name: "PRIDE_TOKEN",
         httpOnly: true,
-        maxAge: Date.now() + 86400000,
+        maxAge: 2680000000,
         sameSite: 'none',
-        secure: false
+        secure: true
     }
 }));
 router.use(passport.initialize());
